@@ -4,26 +4,17 @@
     android:layout_height="match_parent"
     android:background="#f7f6f6">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
-        android:src="@drawable/logo_main"
-        android:layout_marginBottom="313dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Gracias por usar Cashless"
         android:id="@+id/textView2"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:textAlignment="center"
         android:textSize="20pt"
-        android:textColor="#FF0B0B0B"/>
+        android:textColor="#FF0B0B0B"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"

@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">CashLess</string>
-
+    <string-array name="array_restaurant">
+        <item>Restaurante 1</item>
+        <item>Restaurante 2</item>
+        <item>Restaurante 3</item>
+    </string-array>
+    <string-array name="array_table">
+        <item>Mesa 1</item>
+        <item>Mesa 2</item>
+        <item>Mesa 3</item>
+    </string-array>
+    <string-array name="array_items">
+        <item>Hamburguesa</item>
+        <item>Cerveza Corona</item>
+    </string-array>
 </resources>

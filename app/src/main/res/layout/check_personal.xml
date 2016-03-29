@@ -4,27 +4,35 @@
     android:layout_height="match_parent"
     android:background="#f7f6f6">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView2"
-        android:src="@drawable/logo_main"
-        android:layout_marginBottom="465dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre_Restaurante"
+        android:text="Restaurante 1"
         android:id="@+id/textView"
+        android:layout_marginTop="34dp"
+        android:background="#eae9e8"
+        android:textColor="#000000"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="95dp"
-        android:background="#fc0606"
-        android:textColor="#000000" />
+        android:textSize="22dp" />
 
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listView"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:entries="@array/array_items"
+        android:layout_marginTop="80dp" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Checkout"
+        android:id="@+id/button_checkout"
+        android:layout_marginBottom="59dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

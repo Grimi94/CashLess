@@ -4,17 +4,6 @@
     android:layout_height="match_parent"
     android:background="#f7f6f6">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Nombre_Restaurante"
-        android:id="@+id/textView"
-        android:layout_marginTop="33dp"
-        android:background="#fc0606"
-        android:textColor="#000000"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -23,6 +12,20 @@
         android:layout_below="@+id/textView"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restaurante 1"
+            android:id="@+id/textView"
+            android:layout_marginTop="33dp"
+            android:background="#eae9e8"
+            android:textColor="#000000"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textSize="22dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.06" />
 
         <EditText
             android:layout_width="match_parent"
@@ -58,16 +61,14 @@
             android:hint="Fecha de Expiración" />
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="279dp"
             android:layout_height="wrap_content"
             android:text="Pagar "
             android:id="@+id/pay_button"
-            android:layout_gravity="center_horizontal"
-            android:layout_weight="0.06" />
+            android:layout_gravity="center_horizontal" />
 
 
     </LinearLayout>
-
 
 
 </RelativeLayout>

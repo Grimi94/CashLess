@@ -8,65 +8,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Restaurante 1"
-        android:id="@+id/textView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="95dp"
+        android:id="@+id/restaurantTitle"
+        android:layout_marginTop="40dp"
         android:background="#ebeaea"
         android:textColor="#000000"
-        android:textSize="22dp" />
+        android:textSize="22sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/textView"
+    <Button
+        android:layout_width="213dp"
+        android:layout_height="wrap_content"
+        android:text="Seleccionar"
+        android:id="@+id/button_select"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/groupCheck"
+        android:layout_below="@+id/restaurantTitle"
+        android:layout_marginTop="40dp"
+        android:layout_above="@+id/button_select"
+        android:layout_marginBottom="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="37dp">
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Limonada Mineral"
-            android:id="@+id/checkBox"
-            android:layout_gravity="center_horizontal"
-            android:checked="false"/>
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pizza de carnes"
-            android:id="@+id/checkBox2"
-            android:layout_gravity="center_horizontal"
-            android:checked="false" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hamburguesa"
-            android:id="@+id/checkBox3"
-            android:layout_gravity="center_horizontal"
-            android:checked="false" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Cerveza Corona"
-            android:id="@+id/checkBox4"
-            android:layout_gravity="center_horizontal"
-            android:checked="false" />
-
-        <Space
-            android:layout_width="20px"
-            android:layout_height="100px" />
-
-        <Button
-            android:layout_width="213dp"
-            android:layout_height="wrap_content"
-            android:text="Seleccionar"
-            android:id="@+id/button_select"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

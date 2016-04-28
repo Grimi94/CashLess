@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Restaurante 1"
-        android:id="@+id/textView"
+        android:id="@+id/restaurantTitle"
         android:layout_marginTop="34dp"
         android:background="#eae9e8"
         android:textColor="#000000"
@@ -19,20 +19,34 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/listView"
-        android:layout_below="@+id/textView"
+        android:id="@+id/personCheck"
+        android:layout_below="@+id/restaurantTitle"
         android:layout_centerHorizontal="true"
         android:entries="@array/array_items"
-        android:layout_marginTop="80dp" />
+        android:layout_marginTop="40dp"
+        android:layout_above="@+id/subtotal"
+        android:layout_marginBottom="40dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Checkout"
         android:id="@+id/button_checkout"
-        android:layout_marginBottom="59dp"
+        android:layout_marginBottom="29dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/subtotal"
+        android:layout_above="@+id/button_checkout"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp" />
 
 
 </RelativeLayout>

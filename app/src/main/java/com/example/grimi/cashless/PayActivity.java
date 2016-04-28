@@ -17,6 +17,7 @@ public class PayActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(PayActivity.this, ThanksActivity.class);
+
                 startActivity(intent);
             }
         });

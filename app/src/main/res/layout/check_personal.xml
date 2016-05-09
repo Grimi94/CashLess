@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:ems="10"
-            android:id="@+id/editText2"
+            android:id="@+id/inputTip"
             android:layout_marginRight="0dp"
             android:hint="% de Propina"
             android:layout_alignBottom="@+id/subtotal"

@@ -20,12 +20,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/personCheck"
-        android:layout_below="@+id/restaurantTitle"
-        android:layout_centerHorizontal="true"
         android:entries="@array/array_items"
-        android:layout_marginTop="40dp"
-        android:layout_above="@+id/subtotal"
-        android:layout_marginBottom="40dp" />
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/restaurantTitle"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
 
     <Button
         android:layout_width="fill_parent"
@@ -38,15 +40,44 @@
         android:layout_marginLeft="40dp"
         android:layout_marginRight="40dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="New Text"
-        android:id="@+id/subtotal"
         android:layout_above="@+id/button_checkout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:textSize="20dp" />
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout"
+        android:layout_alignParentEnd="false"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/subtotal"
+            android:layout_marginBottom="30dp"
+            android:textSize="20dp"
+            android:layout_above="@+id/button_checkout"
+            android:layout_alignStart="@+id/button_checkout"
+            android:layout_weight="0.47"
+            android:layout_marginLeft="30dp" />
+
+        <EditText
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText2"
+            android:layout_marginRight="0dp"
+            android:hint="% de Propina"
+            android:layout_alignBottom="@+id/subtotal"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="false"
+            android:layout_alignParentTop="false"
+            android:layout_alignParentLeft="false"
+            android:layout_alignParentRight="false"
+            android:layout_weight="0.09" />
+    </LinearLayout>
 
 
 </RelativeLayout>

@@ -38,33 +38,39 @@ public class MainActivity extends AppCompatActivity {
         final Firebase myFirebaseRef = new Firebase("https://cashless.firebaseio.com/");
 
 
-        ValueEventListener valueEventListener = myFirebaseRef.child("").addValueEventListener(new ValueEventListener() {
+        ValueEventListener valueEventListener = myFirebaseRef.child("Restaurant").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
 //                System.out.println(snapshot.getValue());  //prints "Do you have data? You'll love Firebase."
-//                System.out.println("Success!!!!");
-//                System.out.println(snapshot.getValue());  //prints "Do you have data? You'll love Firebase."
+                System.out.println("Success!!!!");
+                System.out.println(snapshot.getValue());  //prints "Do you have data? You'll love Firebase."
                 ArrayList<String> newRestaurants = new ArrayList<String>();
                 tables.clear();
                 restaurants.clear();
+                currentTables.clear();
+                System.out.println("Restaurants");
+                System.out.println("++++++++++++++");
                 for (DataSnapshot restaurantSnapshot : snapshot.getChildren()) {
-//                    System.out.println("Restaurants");
                     restaurants.add(restaurantSnapshot.getKey());
-//                    System.out.println(restaurantSnapshot.getValue());  //prints "Do you have data? You'll love Firebase."
-//                    System.out.println(restaurantSnapshot.getKey());  //prints "Do you have data? You'll love Firebase."
+                    System.out.println(restaurantSnapshot.getValue());  //prints "Do you have data? You'll love Firebase."
+                    System.out.println(restaurantSnapshot.getKey());  //prints "Do you have data? You'll love Firebase."
                     ArrayList<String> restaurantTables = new ArrayList<String>();
+                    System.out.println("content =====");
                     for (DataSnapshot contentSnapshot : restaurantSnapshot.getChildren()) {
+                        System.out.println(contentSnapshot);
                         if(contentSnapshot.getKey() == "Mesas"){
                             ArrayList<String> newTables = new ArrayList<String>();
                             for (DataSnapshot tablesSnapshot : contentSnapshot.getChildren()) {
                                 newTables.add(tablesSnapshot.getKey());
                             }
+//                            System.out.println(newTables);
                             tables.add(newTables);
                         }
                     }
                 }
                 System.out.println("----------------");
-//                System.out.println(tables);
+                System.out.println(tables);
+
                 Spinner restaurantSpinner = (Spinner) findViewById(R.id.rest);
                 if(spinnerArrayAdapter == null) {
                     spinnerArrayAdapter = new ArrayAdapter(MainActivity.this.getApplicationContext(), android.R.layout.simple_spinner_item, restaurants);

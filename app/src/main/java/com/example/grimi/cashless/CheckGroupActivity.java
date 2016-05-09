@@ -85,7 +85,7 @@ public class CheckGroupActivity extends AppCompatActivity {
             }
         });
 
-        final Firebase myFirebaseRef = new Firebase("https://cashless.firebaseio.com/Oh!Bento/Mesas");
+        final Firebase myFirebaseRef = new Firebase("https://cashless.firebaseio.com/Restaurant/Oh!Bento/Mesas");
         TextView titleView = (TextView) findViewById(R.id.restaurantTitle);
         titleView.setText("Oh!Bento");
         Bundle extras = getIntent().getExtras();

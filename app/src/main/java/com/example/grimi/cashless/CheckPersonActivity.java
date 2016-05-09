@@ -36,7 +36,7 @@ public class CheckPersonActivity extends AppCompatActivity {
         checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CheckPersonActivity.this, PayActivity.class);
+                Intent intent = new Intent(CheckPersonActivity.this, Paypal.class);
                 startActivity(intent);
             }
         });

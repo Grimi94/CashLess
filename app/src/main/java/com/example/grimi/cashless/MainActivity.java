@@ -21,6 +21,7 @@ import com.firebase.client.ValueEventListener;
 import java.util.ArrayList;
 import java.util.EventListener;
 import java.util.List;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<ArrayList<String>> tables = new ArrayList<ArrayList<String>>();
@@ -37,39 +38,26 @@ public class MainActivity extends AppCompatActivity {
         Firebase.setAndroidContext(this);
         final Firebase myFirebaseRef = new Firebase("https://cashless.firebaseio.com/");
 
-
         ValueEventListener valueEventListener = myFirebaseRef.child("Restaurant").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-//                System.out.println(snapshot.getValue());  //prints "Do you have data? You'll love Firebase."
-                System.out.println("Success!!!!");
-                System.out.println(snapshot.getValue());  //prints "Do you have data? You'll love Firebase."
                 ArrayList<String> newRestaurants = new ArrayList<String>();
                 tables.clear();
                 restaurants.clear();
                 currentTables.clear();
-                System.out.println("Restaurants");
-                System.out.println("++++++++++++++");
                 for (DataSnapshot restaurantSnapshot : snapshot.getChildren()) {
                     restaurants.add(restaurantSnapshot.getKey());
-                    System.out.println(restaurantSnapshot.getValue());  //prints "Do you have data? You'll love Firebase."
-                    System.out.println(restaurantSnapshot.getKey());  //prints "Do you have data? You'll love Firebase."
                     ArrayList<String> restaurantTables = new ArrayList<String>();
-                    System.out.println("content =====");
                     for (DataSnapshot contentSnapshot : restaurantSnapshot.getChildren()) {
-                        System.out.println(contentSnapshot);
-                        if(contentSnapshot.getKey() == "Mesas"){
+                        if(Objects.equals(contentSnapshot.getKey(), "Mesas")){
                             ArrayList<String> newTables = new ArrayList<String>();
                             for (DataSnapshot tablesSnapshot : contentSnapshot.getChildren()) {
                                 newTables.add(tablesSnapshot.getKey());
                             }
-//                            System.out.println(newTables);
                             tables.add(newTables);
                         }
                     }
                 }
-                System.out.println("----------------");
-                System.out.println(tables);
 
                 Spinner restaurantSpinner = (Spinner) findViewById(R.id.rest);
                 if(spinnerArrayAdapter == null) {
@@ -80,24 +68,17 @@ public class MainActivity extends AppCompatActivity {
                     spinnerArrayAdapter.notifyDataSetChanged();
                 }
 
-
                 Spinner tablesSpinner = (Spinner) findViewById(R.id.mesa);
                 if(spinnerArrayAdapter2 == null) {
-//                    System.out.println("Position:");
-//                    System.out.println(restaurantSpinner.getSelectedItemPosition());
                     currentTables.addAll(tables.get(selectedIndex));
                     spinnerArrayAdapter2 = new ArrayAdapter(MainActivity.this.getApplicationContext(), android.R.layout.simple_spinner_item, currentTables);
                     spinnerArrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                     tablesSpinner.setAdapter(spinnerArrayAdapter2);
                 } else {
                     currentTables.clear();
-//                    System.out.println(tables);
-//                    System.out.println(tables.get(selectedIndex));
                     currentTables.addAll(tables.get(selectedIndex));
                     spinnerArrayAdapter2.notifyDataSetChanged();
                 }
-
-
 
             }
 
@@ -113,9 +94,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 selectedIndex = position;
-                //currentTables.clear();
-                //currentTables.addAll(tables.get(position));
-                //  spinnerArrayAdapter2.notifyDataSetChanged();
+                if(tables.size() > 0){
+                    currentTables.clear();
+                    currentTables.addAll(tables.get(position));
+                    spinnerArrayAdapter2.notifyDataSetChanged();
+                }
+
             }
 
             @Override
@@ -125,16 +109,19 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        Button checkin = (Button)findViewById(R.id.button_checkin);
-        checkin.setOnClickListener(new View.OnClickListener() {
+        Button check_in = (Button)findViewById(R.id.button_checkin);
+        check_in.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Spinner tableSpinner = (Spinner) findViewById(R.id.mesa);
+                Spinner restSpinner  = (Spinner) findViewById(R.id.rest);
                 String selectedTable = (String)tableSpinner.getSelectedItem();
-                System.out.print(selectedTable);
+                String selectedRest = (String)restSpinner.getSelectedItem();
                 Intent intent = new Intent(MainActivity.this, CheckGroupActivity.class);
                 intent.putExtra("table", selectedTable);
-
+                intent.putExtra("restaurant", selectedRest);
+                System.out.println(selectedRest);
+                System.out.println(selectedTable);
                 startActivity(intent);
             }
         });

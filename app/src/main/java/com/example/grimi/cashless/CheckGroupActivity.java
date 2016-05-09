@@ -55,9 +55,6 @@ public class CheckGroupActivity extends AppCompatActivity {
                                 ArrayList<String> currentItems = new ArrayList<String>();
                                 for(int i = 0; i < checked.size(); i++){
                                     if(checked.valueAt(i) == true) {
-//                                        String item = (String);
-//                                        String[] splitString = item.split("$");
-//                                        System.out.println(i);
                                         String item = (String)currentCheck.get(i);
                                         int cost = Integer.parseInt(currentCheck.get(i).split("\\$")[1]);
                                         total += cost;
@@ -75,35 +72,23 @@ public class CheckGroupActivity extends AppCompatActivity {
 
             }
         });
-
-        checkListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                // change the checkbox state
-//                CheckedTextView checkedTextView = ((CheckedTextView)view);
-//                checkedTextView.setChecked(!checkedTextView.isChecked());
-            }
-        });
-
-        final Firebase myFirebaseRef = new Firebase("https://cashless.firebaseio.com/Restaurant/Oh!Bento/Mesas");
-        TextView titleView = (TextView) findViewById(R.id.restaurantTitle);
-        titleView.setText("Oh!Bento");
         Bundle extras = getIntent().getExtras();
         String table = extras.getString("table");
+        String restaurant = extras.getString("restaurant");
+
+        final Firebase myFirebaseRef = new Firebase("https://cashless.firebaseio.com/Restaurant/" + restaurant + "/Mesas");
+        TextView titleView = (TextView) findViewById(R.id.restaurantTitle);
+        titleView.setText(restaurant);
+
 
         ValueEventListener valueEventListener = myFirebaseRef.child(table).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-//                System.out.println(snapshot.getValue());  //prints "Do you have data? You'll love Firebase."
-//                System.out.println("MEsass!!!!");
-//                System.out.println(snapshot.getValue());  //prints "Do you have data? You'll love Firebase."
                 currentCheck.clear();
 
                 for (DataSnapshot tablesSnapshot : snapshot.getChildren()) {
                     currentCheck.add(tablesSnapshot.getKey().toString() + "    $" + tablesSnapshot.getValue().toString());
                 }
-                System.out.print("------CHECK-----------");
-                System.out.print(currentCheck);
                 itemsAdapter.notifyDataSetChanged();
             }
 
